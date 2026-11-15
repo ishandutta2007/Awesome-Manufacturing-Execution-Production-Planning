@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="360">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.05" />
+    </linearGradient>
+
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- Filter for soft glows -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <style>
+      .title-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        font-size: 38px;
+        fill: #ffffff;
+        letter-spacing: -0.5px;
+      }
+      .subtitle-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        fill: #94a3b8;
+        letter-spacing: 0.2px;
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: 12px;
+        fill: #e2e8f0;
+      }
+      .stat-number {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        fill: #38bdf8;
+      }
+      .stat-label {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        font-size: 11px;
+        fill: #64748b;
+      }
+
+      /* Animated SVG Elements */
+      @keyframes floatPulse {
+        0%, 100% { transform: translateY(0px) scale(1); opacity: 0.85; }
+        50% { transform: translateY(-8px) scale(1.02); opacity: 1; }
+      }
+      @keyframes orbitFlow {
+        0% { stroke-dashoffset: 200; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes radarSweep {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes beamSlide {
+        0% { transform: translateX(-150px); opacity: 0; }
+        50% { opacity: 0.7; }
+        100% { transform: translateX(1200px); opacity: 0; }
+      }
+
+      .pulse-node {
+        animation: floatPulse 4s ease-in-out infinite;
+      }
+      .pulse-node-delayed {
+        animation: floatPulse 4.5s ease-in-out infinite 1.5s;
+      }
+      .flowing-dash {
+        stroke-dasharray: 8, 6;
+        animation: orbitFlow 12s linear infinite;
+      }
+      .scanning-beam {
+        animation: beamSlide 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" rx="16" fill="none" stroke="#334155" stroke-width="1.5" />
+
+  <!-- Technical Background Grid -->
+  <g opacity="0.12">
+    <line x1="0" y1="60" x2="1200" y2="60" stroke="#64748b" stroke-width="1" />
+    <line x1="0" y1="120" x2="1200" y2="120" stroke="#64748b" stroke-width="1" />
+    <line x1="0" y1="180" x2="1200" y2="180" stroke="#64748b" stroke-width="1" />
+    <line x1="0" y1="240" x2="1200" y2="240" stroke="#64748b" stroke-width="1" />
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="#64748b" stroke-width="1" />
+    <line x1="150" y1="0" x2="150" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="300" y1="0" x2="300" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="450" y1="0" x2="450" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="600" y1="0" x2="600" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="750" y1="0" x2="750" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="900" y1="0" x2="900" y2="360" stroke="#64748b" stroke-width="1" />
+    <line x1="1050" y1="0" x2="1050" y2="360" stroke="#64748b" stroke-width="1" />
+  </g>
+
+  <!-- Dynamic Ambient Glow in Background (Behind Text) -->
+  <circle cx="200" cy="90" r="140" fill="url(#glowGrad)" filter="url(#softGlow)" />
+  <circle cx="1020" cy="180" r="160" fill="url(#glowGrad)" filter="url(#softGlow)" />
+
+  <!-- Flowing Network Routing Line (Background Visual Dynamic Element) -->
+  <path d="M 50 310 C 250 310, 400 320, 600 310 S 850 310, 1150 310" fill="none" stroke="#1e3a8a" stroke-width="3" opacity="0.4" />
+  <path d="M 50 310 C 250 310, 400 320, 600 310 S 850 310, 1150 310" class="flowing-dash" fill="none" stroke="#38bdf8" stroke-width="2" opacity="0.7" />
+
+  <!-- Dynamic Light Beam Scanning Effect across bottom bar -->
+  <g class="scanning-beam">
+    <ellipse cx="0" cy="310" rx="90" ry="4" fill="#38bdf8" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Interactive Manufacturing Pipeline Cards (Right Side / Dynamic Cards) -->
+  <!-- Card 1: MES Execution Loop -->
+  <g class="pulse-node" transform="translate(860, 50)">
+    <rect width="280" height="74" rx="12" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.2" />
+    <circle cx="36" cy="37" r="18" fill="#1e3a8a" />
+    <text x="28" y="43" font-size="18">⚙️</text>
+    <text x="68" y="32" class="pill-text" font-size="14" fill="#ffffff">Shop Floor Execution</text>
+    <text x="68" y="52" class="stat-label">ISA-95 • Work Orders • OEE</text>
+    <rect x="220" y="26" width="46" height="20" rx="10" fill="#1d4ed8" fill-opacity="0.3" stroke="#60a5fa" stroke-width="1" />
+    <text x="243" y="40" class="stat-label" fill="#93c5fd" font-weight="700" text-anchor="middle">LIVE</text>
+  </g>
+
+  <!-- Card 2: Finite Capacity APS -->
+  <g class="pulse-node-delayed" transform="translate(860, 142)">
+    <rect width="280" height="74" rx="12" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.2" />
+    <circle cx="36" cy="37" r="18" fill="#4c1d95" />
+    <text x="27" y="43" font-size="18">📊</text>
+    <text x="68" y="32" class="pill-text" font-size="14" fill="#ffffff">Production Planning</text>
+    <text x="68" y="52" class="stat-label">Finite APS • Gantt • Routing</text>
+    <rect x="220" y="26" width="46" height="20" rx="10" fill="#6d28d9" fill-opacity="0.3" stroke="#c084fc" stroke-width="1" />
+    <text x="243" y="40" class="stat-label" fill="#d8b4fe" font-weight="700" text-anchor="middle">SYNC</text>
+  </g>
+
+  <!-- Card 3: Material Requirements Planning & IoT -->
+  <g class="pulse-node" transform="translate(860, 234)">
+    <rect width="280" height="74" rx="12" fill="url(#cardGrad)" stroke="#06b6d4" stroke-width="1.2" />
+    <circle cx="36" cy="37" r="18" fill="#164e63" />
+    <text x="28" y="43" font-size="18">🏭</text>
+    <text x="68" y="32" class="pill-text" font-size="14" fill="#ffffff">Industrial IoT &amp; MRP</text>
+    <text x="68" y="52" class="stat-label">BOM • OPC UA • MCP Agents</text>
+    <rect x="220" y="26" width="46" height="20" rx="10" fill="#0e7490" fill-opacity="0.3" stroke="#22d3ee" stroke-width="1" />
+    <text x="243" y="40" class="stat-label" fill="#67e8f9" font-weight="700" text-anchor="middle">IIoT</text>
+  </g>
+
+  <!-- FOREGROUND: Header Brand & Title Area (Ensures text stays clear & prominent) -->
+  <g transform="translate(60, 65)">
+    <!-- Top Category Badge Pill -->
+    <rect width="248" height="28" rx="14" fill="#1e293b" stroke="#3b82f6" stroke-width="1" />
+    <circle cx="16" cy="14" r="5" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <text x="28" y="19" class="pill-text" fill="#93c5fd">INDUSTRY 4.0 &amp; SMART FACTORY</text>
+
+    <!-- Main Title with Gradient Fill -->
+    <text x="0" y="82" class="title-text">
+      Manufacturing Execution &amp;
+    </text>
+    <text x="0" y="130" class="title-text" fill="url(#accentGrad)">
+      Production Planning
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="168" class="subtitle-text">
+      Curated directory of enterprise SaaS solutions &amp; open-source MES/APS/MRP platforms
+    </text>
+
+    <!-- Feature Pills row -->
+    <g transform="translate(0, 196)">
+      <rect x="0" y="0" width="105" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="14" y="17" class="pill-text">⚡ Cloud MES</text>
+
+      <rect x="115" y="0" width="112" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="129" y="17" class="pill-text">📅 Finite APS</text>
+
+      <rect x="237" y="0" width="112" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="251" y="17" class="pill-text">📦 MRP II / BOM</text>
+
+      <rect x="359" y="0" width="128" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="373" y="17" class="pill-text">🤖 Agent-Native</text>
+
+      <rect x="497" y="0" width="138" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="511" y="17" class="pill-text">🔓 Open-Source</text>
+    </g>
+  </g>
+</svg>
